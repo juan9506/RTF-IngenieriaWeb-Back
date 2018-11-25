@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 20/10/2018 06:15:23 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="co.udea.iw.dto.Solicitud" table="SOLICITUDES">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="titulo" type="java.lang.String">
+            <column name="TITULO" />
+        </property>
+        <property name="descripcion" type="java.lang.String">
+            <column name="DESCRIPCION" />
+        </property>
+        <property name="fecha_creacion" type="java.util.Date">
+            <column name="FECHA_CREACION" />
+        </property>
+        <property name="fecha_solucion" type="java.util.Date">
+            <column name="FECHA_SOLUCION" />
+        </property>
+        <many-to-one name="responsable" class="co.udea.iw.dto.Personal" fetch="join">
+            <column name="RESPONSABLE" />
+        </many-to-one>
+        <many-to-one name="cliente" class="co.udea.iw.dto.Cliente" fetch="join">
+            <column name="CLIENTE" />
+        </many-to-one>
+        <property name="complejidad" type="java.lang.String">
+            <column name="COMPLEJIDAD" />
+        </property>
+        <property name="respuesta" type="java.lang.String">
+            <column name="RESPUESTA" />
+        </property>
+    </class>
+</hibernate-mapping>
